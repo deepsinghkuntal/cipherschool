@@ -1,0 +1,224 @@
+$bg-color: #2D4739;
+$primary-color: #09814A;
+$secondary-color: #E5C687;
+$input-color: #121619;
+
+.loading {
+    -o-transition-property: none !important;
+    -moz-transition-property: none !important;
+    -ms-transition-property: none !important;
+    -webkit-transition-property: none !important;
+    transition-property: none !important;  
+}
+
+body {
+  background-color: $bg-color;
+  margin-top: 3rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+body::-webkit-scrollbar-track {
+	border-radius: 10px;
+	background-color: $bg-color;
+  transition-property: background-color;
+  trainsition-duration: 1s;
+}
+
+
+
+body::-webkit-scrollbar {
+	width: 10px;
+	background-color: $bg-color;
+}
+
+body::-webkit-scrollbar-thumb {
+	border-radius: 15px;
+	background-color: rgba($primary-color, 0.2);
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: rgba($primary-color, 0.5);
+}
+
+
+.TodoList {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-weight: 700;
+  color: $primary-color;
+  background-color: $secondary-color;  
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-self: center;
+  flex-direction: column;
+  border-radius: 10px;
+  max-width: 800px;
+}
+
+.TodoList hr { 
+  border: none;
+  background-color: $bg-color;
+  height: 1px;
+  opacity: 0.4;
+}
+
+.Todo-container:last-of-type hr {
+  opacity: 0;
+}
+
+.TodoList h1 {
+  align-self: center;  
+  text-align: center;
+  font-size: 3rem;
+}
+
+.AddTodoForm {
+  padding: 10px;    
+  border-radius: 10px;
+  background-color: $primary-color;
+  margin: 10px;
+}
+
+.AddTodoForm form {
+  display: flex;
+  justify-content: space-between; 
+  font-size: 2rem;
+}
+
+.AddTodoForm input {
+  padding: 0.8rem;
+  width: 95%;
+  border: none;
+  background-color: $primary-color;
+  font-size: inherit;
+  
+}
+
+::placeholder {
+  color: $input-color;
+  opacity: 0.4;
+}
+
+*:focus {
+  outline: none;
+}
+
+.AddTodoForm button {
+  border: none;
+  background-color: $primary-color;
+  color: $input-color;
+  display: flex;
+  flex: 5%;
+  font-size: 2rem;
+  justify-content: flex-end;
+}
+
+.AddTodoForm button:hover {
+  color: $bg-color;
+}
+
+.TodoList ul {
+  padding: 1rem;
+  list-style: none;
+}
+
+.Todo {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Todo .Todo-text { 
+  overflow: hidden;
+  text-align: center;
+  
+}
+
+.Todo .Todo-text:hover {
+  color: rgba($primary-color, 0.6);
+}
+
+.Todo .Todo-icon {
+}
+
+.Todo .Todo-trash {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Todo .Todo-trash:hover {
+  color: red;
+}
+
+.Todo .Todo-check:hover {
+  color: rgba($primary-color, 0.4);
+}
+
+.Todo.completed {
+  color: rgba($bg-color, 0.4)
+}
+
+.Todo:not(.completed)::after{
+  content: "";
+  position: absolute;
+  height: 1px;
+  top: 50%;
+  right: 0%;
+  width: 0%;
+  background-color: rgba($bg-color, 0.4);
+  animation: strike 1s reverse;
+}
+
+.Todo.completed::before {
+  content: "";
+  position: absolute;
+  height: 1px;
+  top: 50%;
+  width: 100%;
+  background-color: rgba($bg-color, 0.4);
+  animation: strike 1s;
+}
+
+.Todo:not(completed) .Todo-check {
+  animation: reverseRoll 1s reverse;
+}
+
+
+.Todo.completed .Todo-check {
+  animation: roll 1s;
+}
+
+@keyframes strike {
+  0%{
+    width: 0%
+  }  
+  100% {
+    width: 100%
+  }
+}
+
+
+@keyframes roll {
+  0% {
+    transform: rotate(0deg)
+  }
+  
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+@keyframes reverseRoll {
+  0% {
+    transform: rotate(0deg)
+  }
+  
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+@keyframes swell {
+  
+}
